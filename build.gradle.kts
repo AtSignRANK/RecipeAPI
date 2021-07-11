@@ -4,8 +4,8 @@ plugins {
     `maven-publish`
 }
 
-group = properties["group"]!!
-version = properties["version"]!!
+group = "org.example"
+version = "1.0-SNAPSHOT"
 
 repositories {
     jcenter()
