@@ -17,11 +17,17 @@ import org.bukkit.inventory.ShapelessRecipe;
 
 import java.io.File;
 
-public class Recipe {
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
+
+@ApiStatus.NonExtendable
+public interface Recipe {
     File file = new File("RecipeData/data.yml");
     FileConfiguration namespace = YamlConfiguration.loadConfiguration(file);
 
-    public void addRecipe(ShapedRecipe recipe) {
+    @Contract(pure = true)
+    static void addRecipe(ShapedRecipe recipe) {
         var varNumber = namespace.get("number");
         if (!(varNumber instanceof Integer)) {
             System.out.println("RecipeLoadException");
@@ -35,7 +41,8 @@ public class Recipe {
         namespace.set("" + number, recipe);
     }
 
-    public void addRecipe(ShapelessRecipe recipe) {
+    @Contract(pure = true)
+    static void addRecipe(ShapelessRecipe recipe) {
         var varNumber = namespace.get("number");
         if (!(varNumber instanceof Integer)) {
             System.out.println("RecipeLoadException");
@@ -49,7 +56,8 @@ public class Recipe {
         namespace.set("" + number, recipe);
     }
 
-    public void removeRecipe(ShapedRecipe recipe) {
+    @Contract(pure = true)
+    static void removeRecipe(ShapedRecipe recipe) {
         NamespacedKey namespacedkey = (NamespacedKey) namespace.get(recipe.toString());
         if (namespacedkey == null) {
             System.out.println("It's invalid ShapedRecipe!");
@@ -58,7 +66,8 @@ public class Recipe {
         Bukkit.removeRecipe(namespacedkey);
     }
 
-    public void removeRecipe(ShapelessRecipe recipe) {
+    @Contract(pure = true)
+    static void removeRecipe(ShapelessRecipe recipe) {
         NamespacedKey namespacedkey = (NamespacedKey) namespace.get(recipe.toString());
         if (namespacedkey == null) {
             System.out.println("It's invalid ShapedRecipe!");
@@ -67,7 +76,8 @@ public class Recipe {
         Bukkit.removeRecipe(namespacedkey);
     }
 
-    public void loadRecipes() {
+    @Contract(pure = true)
+    static void loadRecipes() {
         var varNumber = namespace.get("number");
         if (!(varNumber instanceof Integer)) {
             System.out.println("RecipeLoadException");
