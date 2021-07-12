@@ -44,16 +44,15 @@ dependencies {
 Example Code
 - Kotlin Plugin
 ```kt
-    public void loadRecipes() {
-        var varNumber = Recipe.namespace.get("number");
-        if (!(varNumber instanceof Integer)) {
-            System.out.println("RecipeLoadException");
-            return;
+    fun loadRecipes() {
+        val varNumber = Recipe.namespace.get("number")
+        if (varNumber !is Int) {
+            return
         }
-        int number = (int) varNumber + 1;
-        for (int i = 1; i <= number; i++) {
-            org.bukkit.inventory.Recipe recipe = (org.bukkit.inventory.Recipe) Recipe.namespace.get("" + i);
-            Bukkit.addRecipe(recipe);
+        val number = varNumber as Int + 1
+        for (i in 1..number) {
+            val recipe = Recipe.namespace.get("" + i) as org.bukkit.inventory.Recipe
+            Bukkit.addRecipe(recipe)
         }
     }
 ```
