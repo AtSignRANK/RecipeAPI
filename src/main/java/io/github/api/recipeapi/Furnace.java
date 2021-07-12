@@ -1,0 +1,43 @@
+package io.github.api.recipeapi;
+
+import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.inventory.FurnaceRecipe;
+import org.jetbrains.annotations.ApiStatus;
+import org.jetbrains.annotations.Contract;
+
+import java.io.File;
+
+
+@ApiStatus.NonExtendable
+public interface Furnace {
+    File file = new File("RecipeData/data.yml");
+    FileConfiguration namespace = YamlConfiguration.loadConfiguration(file);
+
+    @Contract(pure = true)
+    static void addRecipe(FurnaceRecipe recipe) {
+        var varNumber = namespace.get("number");
+        if (!(varNumber instanceof Integer)) {
+            System.out.println("RecipeLoadException");
+            return;
+        }
+        int number = (int) varNumber + 1;
+        NamespacedKey key = recipe.getKey();
+        Bukkit.addRecipe(recipe);
+        namespace.set(recipe.toString(), key);
+        namespace.set(recipe.toString(), number);
+        namespace.set("" + number, recipe);
+    }
+
+    @Contract(pure = true)
+    static void removeRecipe(FurnaceRecipe recipe) {
+        NamespacedKey namespacedkey = (NamespacedKey) namespace.get(recipe.toString());
+        if (namespacedkey == null) {
+            System.out.println("It's invalid FurnaceRecipe!");
+            return;
+        }
+        Bukkit.removeRecipe(namespacedkey);
+    }
+}
