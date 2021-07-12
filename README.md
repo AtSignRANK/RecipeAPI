@@ -1,4 +1,5 @@
 # RecipeAPI
+- Minecraft Paper Library
 - addRecipe, removeRecipe
 
 
@@ -12,19 +13,30 @@
 </repositories>
 
 <dependency>
-    <groupId>com.github.ProjectTL12345</groupId>
-    <artifactId>InventoryGUI</artifactId>
-    <version>VERSION</version>
+    <groupId>com.github.AtSignRANK</groupId>
+    <artifactId>RecipeAPI</artifactId>
+    <version>API-VERSION</version>
 </dependency>
 ```
 
 - Gradle (build.gradle)
 ```gradle
 repositories {
-  maven 'https://jitpack.io'
+  maven "https://jitpack.io"
 }
 
 dependencies {
-  implementation 'com.github.AtSignRANK:RecipeAPI:API-VERSION'
+  implementation "com.github.AtSignRANK:RecipeAPI:API-VERSION"
+}
+```
+
+- Gradle (build.gradle.kts)
+```kts
+repositories {
+    maven("https://jitpack.io")
+}
+
+dependencies {
+  implementation("com.github.AtSignRANK:RecipeAPI:API-VERSION")
 }
 ```
