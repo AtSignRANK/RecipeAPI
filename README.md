@@ -3,7 +3,7 @@
 - addRecipe, removeRecipe
 
 
-- Maven (pom.xml)
+- Maven (.xml)
 ```xml
 <repositories>
     <repository>
@@ -19,7 +19,7 @@
 </dependency>
 ```
 
-- Gradle (build.gradle)
+- Gradle (.gradle)
 ```gradle
 repositories {
   maven "https://jitpack.io"
@@ -30,7 +30,7 @@ dependencies {
 }
 ```
 
-- Gradle (build.gradle.kts)
+- Gradle (.kts)
 ```kts
 repositories {
     maven("https://jitpack.io")
