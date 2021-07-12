@@ -42,7 +42,7 @@ dependencies {
 ```
 
 Example Code
-- Kotlin Plugin
+- Kotlin Example Code ( Code Version 2.0.-1 )
 ```kt
     fun loadRecipes() {
         val varNumber = Recipe.namespace.get("number")
