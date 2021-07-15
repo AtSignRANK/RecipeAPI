@@ -2,6 +2,9 @@
 - Minecraft Paper Library
 - addRecipe, removeRecipe
 
+## 사용 방법
+- addRecipe() 는 기존 방법과 동일
+- removeRecipe() 는 **RecipeAPI** 의 addRecipe를 이용 했을 때 removeRecipe(Recipe) 으로도 삭제가 가능합니다.
 
 - Maven (.xml)
 ```xml
@@ -52,7 +55,7 @@ Example Code
         val number = varNumber as Int + 1
         for (i in 1..number) {
             val recipe = Recipe.namespace.get("" + i) as org.bukkit.inventory.Recipe
-            Bukkit.addRecipe(recipe)
+            Recipe.addRecipe(recipe)
         }
     }
 ```
