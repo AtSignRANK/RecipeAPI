@@ -3,7 +3,7 @@
 - addRecipe, removeRecipe
 
 ## 사용 방법
-- addRecipe() 는 기존 방법과 동일
+- addRecipe() 는 페이퍼와 동일
 - removeRecipe() 는 **RecipeAPI** 의 addRecipe를 이용 했을 때 removeRecipe(Recipe) 으로도 삭제가 가능합니다.
 
 - Maven (.xml)
