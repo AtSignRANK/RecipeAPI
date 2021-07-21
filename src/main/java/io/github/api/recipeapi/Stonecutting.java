@@ -6,9 +6,11 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.inventory.StonecuttingRecipe;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.ApiStatus.NonExtendable;
 
 import java.io.File;
 
+@ApiStatus.NonExtendable
 public interface Stonecutting {
     File file = new File("RecipeData/data.yml");
     FileConfiguration namespace = YamlConfiguration.loadConfiguration(file);
